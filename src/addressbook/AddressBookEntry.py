@@ -6,6 +6,16 @@ class AddressBookEntry(object):
     and has all getters/setters.
     """
     def __init__(self, firstName, lastName, zipcode, address, city, state, phoneNumber):
+        """
+        :param firstName: string
+        :param lastName: string
+        :param zipcode: int
+        :param address: string
+        :param city: string
+        :param state: string
+        :param phoneNumber: int
+        :return:
+        """
         print("constructor!")
         self.__firstName__ = firstName
         self.__lastName__ = lastName

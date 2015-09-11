@@ -21,9 +21,10 @@ class AddressBookController(object):
         :return:
         """
         self.__addressBook__ = AddressBook()
+        self.__fileName__ = ""
         self.__currentDialogue__ = AddressBookDialogue()# AddressBookController always starts with this dialogue
 
-    def new(self,addressBookName, filepath):
+    def new(self,addressBookName, fileName):
         """
         This method is called to create a new AddressBook. Initially empty, so only
         the name is required. Closes current AddressBook. This method doesn't have
@@ -34,11 +35,12 @@ class AddressBookController(object):
         """
         print("new")
 
-    def open(self, nameOfAddressBook, filepath):
+    def open(self, nameOfAddressBook, fileName):
         """
         This method is used to close current AddressBook and open one with the specified
         name by passing readFromDisk() in Storage class
         :param nameOfAddressBook: a string of the name of the AddressBook
+        :param fileName: fileName of AddressBook to open
         :return:
         """
         print("open")
@@ -57,11 +59,11 @@ class AddressBookController(object):
         """
         print("save")
 
-    def saveAs(self, filepath):
+    def saveAs(self, fileName):
         """
         This method calls the writeToDisk() method of the Storage class with filepath
         and with a reference to the current AddressBook
-        :param filepath: a string with the filepath to save the current AddressBook
+        :param fileName: a string with the filepath to save the current AddressBook
         :return:
         """
         print("saveAs")
@@ -119,22 +121,22 @@ class AddressBookController(object):
         """
         print("print")
 
-    def importCSV(self,mapping, filepath):
+    def importCSV(self,mapping, fileName):
         """
         This method uses the AddressBookImportDialogue to get mapping and filepath
         of CSV file to pass information to Storage to get an array
         of AddressBookEntries to pass to the current AddressBook to append
         :param mapping: mapping for the column to fields
-        :param filepath: a string locating where to import CSV file from
+        :param fileName: a string locating where to import CSV file from
         :return:
         """
         print("importCSV")
 
-    def exportCSV(self,filepath):
+    def exportCSV(self,fileName):
         """
         This method gets an array of AddressBookEntries from the current AddressBook
         to Storage to save to disk as CSV file.. Possibly saves the entire AddressBook
-        :param filepath: for where to write CSV file
+        :param fileName: for where to write CSV file
         :return:
         """
         print("exportCSV")

@@ -16,10 +16,10 @@ class AddressBookDialogue(AddressBookGUI):
         print("ADB constructor")
         super(AddressBookDialogue, self).__init__()
 
-    def show(self):
+    def show(self,addressBook):
         """
         Does its own thing then calls parent
         :return:
         """
-        super(AddressBookDialogue, self).show()
+        super(AddressBookDialogue, self).show(addressBook)
 

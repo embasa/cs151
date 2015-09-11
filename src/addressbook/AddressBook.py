@@ -6,21 +6,15 @@ class AddressBook(object):
     This class is intended to hold all necessary information for
     an individual AddressBook that has been read from Storage.
     """
-    def __init__(self, addressBookName, fileName):
+    def __init__(self, addressBookName,fileName):
         """
         Constructor that is populated with information from Storage
         :return:
         """
-        self.__addressBookName__ = "addressBookName"
-        self.__fileName__ = "fileNameLocation"
+        self.__addressBookName__ = addressBookName
+        self.__fileName__ = fileName
         self.__addressBookEntries__ = []
-
-    def getFilename(self):
-        """
-        Returns the file path
-        :return: a string with file path
-        """
-        return self.__fileName__
+        self.__changeStatus__ = False
 
     def getAddressBookName(self):
         """
@@ -29,38 +23,46 @@ class AddressBook(object):
         """
         return self.__addressBookName__
 
-    def getEntry(self, index):
+    def getFileName(self):
         """
-        :return: an array of all the entries AddressBook holds
+        Get filename of this addressBook
+        :return: string with fileName
         """
-        return self.__addressBookEntries__.__getitem__(index)
+        return self.__fileName__
 
-    def setFilename(self, fileName):
+    def getAddressBookEntries(self):
         """
-        Setter method
-        :param fileName: a String for file path
-        :return:
+        returns an array of the entries so dialogue can populate
+        :return: an array of AddressBookEntries
+        """
+        return self.__addressBookEntries__
+
+    def getChangeStatus(self):
+        """
+        Returns a boolean that indicates whether any changes were made
+        :return: A boolean, True if a change has been made, False otherwise.
+        """
+        print("getChange()")
+        return self.__changeStatus__
+
+    def setFileName(self, fileName):
+        """
+        set filename of this addressBook
+        :return: string with fileName
         """
         self.__fileName__ = fileName
 
-    def setAddressBookName(self, addressBookName):
-        """
-        :param addressBookName: a string for name of AddressBook
-        :return:
-        """
-        self.__addressBookName__ = addressBookName
-
     def addEntry(self, entry):
         """
-        :param entry: An instance of AddressBookEntry that is to be populated
-        :return: unknown
+        :param entry: An instance of AddressBookEntry that is to be added
+        :return:
         """
         print("addEntry()")
 
     def editEntry(self,index):
         """
         Takes an AddressBook entry and edits it accordingly
-        :param index: the index of entry that needs to be edited
+        :param entryString: an index of AddressBookEntry to be edited
         :return: a copy of the reference of that AddressBookEntry
         """
         print("editEntry()")
@@ -102,12 +104,6 @@ class AddressBook(object):
         """
         print("toString()")
 
-    def getChange(self):
-        """
-        Returns a boolean that indicates whether any changes were made
-        :return: A boolean, True if a change has been made, False otherwise.
-        """
-        print("getChange()")
 
     def importEntries(self, entries):
         """
@@ -117,13 +113,6 @@ class AddressBook(object):
         :return:
         """
         print("importEntries")
-
-    def exportEntries(self):
-        """
-        This method returns a reference to the array of AddressBookEntries
-        :return: an array of AddressBookEntries
-        """
-        print("exportEntries")
 
     def __lastNameComparator__(self):
         """

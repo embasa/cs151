@@ -19,7 +19,9 @@ class  AddressBookImportDialogue(AddressBookGUI):
     def show(self):
         """
         This method does its own thing then calls parent show
+        This isn't the properway to override. I am still
+        researching this. It should be fine though
         :return:
         """
-        super(AddressBookImportDialogue, self).show()
+        super(AddressBookImportDialogue, self).show(None)
 

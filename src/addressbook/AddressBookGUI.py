@@ -14,10 +14,12 @@ class AddressBookGUI(object):
         """
         print("constructor")
 
-    def show(self):
+    def show(self, typeOfObject):
         """
         This method will be used to create a GUI for addressbook project
-        sets the size of window
+        sets the size of window. This method, based on the type of instance
+        passed behaves differently.
+        :param : an instance of one of the types needed.
         :return:
         """
         print("show")
