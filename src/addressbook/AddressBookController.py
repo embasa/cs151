@@ -1,6 +1,8 @@
 __author__ = 'bruno'
+
 from addressbook.AddressBook import *
 from addressbook.AddressBookDialogue import *
+from addressbook.AddressBookImportDialogue import *
 from addressbook.AddressBookEntryDialogue import *
 from addressbook.Storage import *
 
@@ -17,14 +19,23 @@ class AddressBookController(object):
         :return:
         """
         self.__addressBook__ = AddressBook()
-        self.__addBookDialogue__ = AddressBookDialogue()
-        self.__addBookEntryDialogue__ = AddressBookEntryDialogue()
+        self.__currentDialogue__ = AddressBookDialogue()# AddressBookController always starts with this dialogue
 
-    def open(self,nameOfAddressBook):
+    def new(self,addressBookName, filePath):
         """
-        This method uses the Storage class to populate the current
-        AddressBook instance with the data corresponding of the specified
-        address book
+        This method is called to create a new AddressBook. Initially empty, so only
+        the name is required. Closes current AddressBook. This method doesn't have
+        parameters because it will have to
+        :param addressBookName: string containing name of new AddressBook
+        :param filePath: string containing filepath of new AddressBook
+        :return:
+        """
+        print("new")
+
+    def open(self, nameOfAddressBook, filepath):
+        """
+        This method is used to close current AddressBook and open one with the specified
+        name by passing readFromDisk() in Storage class
         :param nameOfAddressBook: a string of the name of the AddressBook
         :return:
         """
@@ -37,22 +48,6 @@ class AddressBookController(object):
         :return:
         """
         print("save")
-
-    def add(self):
-        """
-        This method calls the AddressbookEntryDialogue's routine as to allow it
-        to add an entry to the corresponding
-        :return:
-        """
-        print("add")
-
-    def new(self):
-        """
-        This method is called to create a new AddressBook. Initially empty, so only
-        the name is required.
-        :return:
-        """
-        print("new")
 
     def saveAs(self,filepath):
         """
@@ -71,9 +66,70 @@ class AddressBookController(object):
         """
         print("print")
 
+    def close(self):
+        """
+        This method is used to close current AddressBook
+        :return:
+        """
+
     def quit(self):
         """
         This method closes application. Probably has a routine to do so safely
         :return:
         """
         print("quit")
+
+    def add(self):
+        """
+        This method calls the AddressbookEntryDialogue's routine as to allow it
+        to add an entry then it will append it to the current AddressBOok
+        :return:
+        """
+        print("add")
+
+    def edit(self, index):
+        """
+        This method is used to edit a specific entry from the current AddressBook
+        with the specified index given from the dialogue
+        :param index: index of element to delete
+        :return:
+        """
+        print("edit")
+
+    def delete(self, index):
+        """
+        this method gives the current AddressBook the index of the entry to delete
+        :param index : index of element to delete
+        :return:
+        """
+
+    def sortByLastName(self):
+        """
+        This method tells current AddressBook to sort by lastName
+        :return:
+        """
+        self.__addressBook__.sortByName()
+
+    def sortByZipCode(self):
+        """
+        This method tells current AddressBook to sort by zipcode
+        :return:
+        """
+        self.__addressBook__.sortByName()
+
+    def importCSV(self):
+        """
+        This method uses the AddressBookImportDialogue to get mapping and filepath
+        of CSV file to pass information to Storage to get an array
+        of AddressBookEntries to pass to the current AddressBook to append
+        :return:
+        """
+        print("importCSV")
+
+    def exportCSV(self):
+        """
+        This method gets an array of AddressBookEntries from the current AddressBook
+        to Storage to save to disk as CSV file.. Possibly saves the entire AddressBook
+        :return:
+        """
+        print("exportCSV")

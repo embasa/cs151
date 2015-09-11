@@ -1,6 +1,5 @@
 __author__ = 'bruno'
-from addressbook import AddressBookGUI
-
+from addressbook.AddressBookGUI import *
 
 class AddressBookDialogue(AddressBookGUI):
     """
@@ -12,6 +11,13 @@ class AddressBookDialogue(AddressBookGUI):
         Not familiar with what needs to be in this Constructor
         :return:
         """
-        pass
+        print("ADB constructor")
+        super(AddressBookDialogue, self).__init__()
 
+    def show(self):
+        """
+        Does its own thing then calls parent
+        :return:
+        """
+        super(AddressBookDialogue, self).show()
 

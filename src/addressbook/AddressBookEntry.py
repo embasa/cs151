@@ -5,7 +5,7 @@ class AddressBookEntry(object):
     This class defines a single entry with all the appropriate fields
     and has all getters/setters.
     """
-    def __init__(self, firstName, lastName, zipcode, address, city, state, phone):
+    def __init__(self, firstName, lastName, zipcode, address, city, state, phoneNumber):
         print("constructor!")
         self.__firstName__ = firstName
         self.__lastName__ = lastName
@@ -13,7 +13,7 @@ class AddressBookEntry(object):
         self.__address__ = address
         self.__city__ = city
         self.__state__ = state
-        self.__phone__ = phone
+        self.__phoneNumber__ = phoneNumber
 
     def getFirstName(self):
         """
@@ -51,11 +51,11 @@ class AddressBookEntry(object):
         """
         return self.__state__
 
-    def getPhone(self):
+    def getPhoneNumber(self):
         """
         :return: an integer of the phone number
         """
-        return self.__phone__
+        return self.__phoneNumber__
 
     def setFirstName(self, firstName):
         """
@@ -99,12 +99,12 @@ class AddressBookEntry(object):
         """
         self.__state__ = state
 
-    def setPhone(self, phone):
+    def setPhoneNumber(self, phoneNumber):
         """
-        :param phone: an integer containing new phone number
+        :param phoneNumber: an integer containing new phone number
         :return:
         """
-        self.__phone__ = phone
+        self.__phoneNumber__ = phoneNumber
 
     def toString(self):
         """

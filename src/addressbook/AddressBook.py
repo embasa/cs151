@@ -4,23 +4,23 @@ from addressbook.AddressBookEntry import *
 class AddressBook(object):
     """
     This class is intended to hold all necessary information for
-    an individual addressbook that has been read from Storage.
+    an individual AddressBook that has been read from Storage.
     """
-    def __init__(self):
+    def __init__(self, addressBookName, fileName):
         """
         Constructor that is populated with information from Storage
         :return:
         """
         self.__addressBookName__ = "addressBookName"
-        self.__fileNameLocation__ = "fileNameLocation"
+        self.__fileName__ = "fileNameLocation"
         self.__addressBookEntries__ = []
 
-    def getFilenameLocation(self):
+    def getFilename(self):
         """
         Returns the file path
         :return: a string with file path
         """
-        return self.__fileNameLocation__
+        return self.__fileName__
 
     def getAddressBookName(self):
         """
@@ -29,19 +29,19 @@ class AddressBook(object):
         """
         return self.__addressBookName__
 
-    def getEntries(self):
+    def getEntry(self, index):
         """
         :return: an array of all the entries AddressBook holds
         """
-        return self.__addressBookEntries__
+        return self.__addressBookEntries__.__getitem__(index)
 
-    def setFilenameLocation(self, fileNameLocation):
+    def setFilename(self, fileName):
         """
         Setter method
-        :param fileNameLocation: a String for file path
+        :param fileName: a String for file path
         :return:
         """
-        self.__fileNameLocation__ = fileNameLocation
+        self.__fileName__ = fileName
 
     def setAddressBookName(self, addressBookName):
         """
@@ -57,22 +57,23 @@ class AddressBook(object):
         """
         print("addEntry()")
 
-    def deleteEntry(self):
+    def deleteEntry(self,index):
         """
         This method deletes an entry from the addressBook
+        :param index: index of the entry to be deleted
         :return: A boolean with whether deleting was successful or not
         """
         print("deleteEntry()")
 
-    def editEntry(self,entry):
+    def editEntry(self,index):
         """
         Takes an AddressBook entry and edits it accordingly
-        :param entry: the AddressBookEntry that needs to be edited
+        :param index: the index of entry that needs to be edited
         :return: a copy of the reference of that AddressBookEntry
         """
         print("editEntry()")
 
-    def searchEntry(self,name):
+    def searchEntry(self,lastName):
         """
         This method searches for an occurrence of the given name
         :param name: a string with lastName to search
@@ -91,9 +92,7 @@ class AddressBook(object):
     def sortByZipcode(self):
         """
         Uses the zipcode Comparator that is to be used to sort the array
-        of AddressBookEntry's
-        :return:
-        """
+        of AddressBookEntry's :return: """
         print("sortByZipcode()")
 
     def toString(self):
@@ -105,8 +104,37 @@ class AddressBook(object):
 
     def getChange(self):
         """
-        Returns a boolean
+        Returns a boolean that indicates whether any changes were made
         :return: A boolean, True if a change has been made, False otherwise.
         """
         print("getChange()")
 
+    def importEntries(self, entries):
+        """
+        This methods appends a array of AddressBookEntries to this instance's
+        AddressBookEntry's array
+        :param entries: An array containing AddressBookEntrys
+        :return:
+        """
+        print("importEntries")
+
+    def exportEntries(self):
+        """
+        This method returns a reference to the array of AddressBookEntries
+        :return: an array of AddressBookEntries
+        """
+        print("exportEntries")
+
+    def __zipCodeComparator__(self):
+        """
+        This method is used to compare AddressBookEntries by zipcode
+        :return: an int, 1 if caller is larger, 0 if the same value and -1 otherwise
+        """
+        return -1
+
+    def __lastNameComparator__(self):
+        """
+        This method is used to compare AddressBookEntries by lastName
+        :return: an int, 1 if caller is larger, 0 if the same value and -1 otherwise
+        """
+        return -1

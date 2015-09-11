@@ -1,51 +1,55 @@
 __author__ = 'bruno'
+from addressbook.AddressBook import *
 
 class Storage(object):
     """
-    This classes only purpose is to read and write AddressBook
-    references to storage
+    This classes purpose is to read and write AddressBook
+    references to storage. We don't need to instantiate this class.
+    We also need added functionality of reading and writing in CSV
+    format
     """
 
-    def __init__(self):
-        """
-        I am unsure whether this needs a constructor
-        so I need to figure that out
-        :return:
-        """
-        pass
-
-    def isFull(self):
-        """
-        A boolean to see if storage is full
-        :return: returns True if full, false otherwise
-        """
-        print("isfull")
-        return True
-
-    def available(self):
-        """
-        This method is in notes, no idea why. Maybe accident
-        :return:
-        """
-        print("available")
-
-    def writeToDisk(self, addressBook, path):
+    @staticmethod
+    def writeToDisk(addressBook, path):
         """
         This method is used to save AddressBook's name and Entries at the given path
-        :param addressBook: Instance of type AddressBook
+        :param addressBook: instance of type AddressBook
         :param path: string containing path
         :return:
         """
         print("writeToDisk")
 
-    def readFromDisk(self, addressBook, path):
+    @staticmethod
+    def readFromDisk(path):
         """
         This method is intended to populate the reference passed as parameter
         and return a copy of the reference possibly
         that is populated using information given in path
-        :param addressBook: a reference to an AddressBook object
         :param path: a string containing path of addressbook data
         :return: AddressBook reference passed as parameter
         """
         print("readFromDisk")
+
+    @staticmethod
+    def writeToDiskCSV(addressBookEntries, filepath):
+        """
+        This method is used to write an AddressBook in CSV format to disk
+        :param addressBookEntries: an array of AddressBookEntries
+        :param filepath: a string containing the filepath
+        :return:
+        """
+        print("writeToDiskCSV")
+
+    @staticmethod
+    def readFromDiskCSV(mapping, filepath):
+        """
+        This method gets a mapping of columns to fields and the file path
+        so it can save the
+        :param : an AddressBook instance
+        :param mapping: a map of columns to fields
+        :param filepath: filepath of CSV file
+        :return: return an array of AddressBookEntries
+        """
+        print("readFromDiskCSV")
+        return []
 

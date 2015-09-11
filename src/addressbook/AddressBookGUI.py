@@ -1,27 +1,24 @@
-__author__ = 'bruno'
+or__ = 'bruno'
 
 class AddressBookGUI(object):
     """
-    This is the parent class of AddressBookEntryDialogue and
+    This is the parent class of AddressBookImportDialogue, AddressBookEntryDialogue and
     AddressBookDialogue, it holds methods and variables that
     are shared among the two children classes
     """
+
     def __init__(self):
         """
-        Constructor for GUI
+        Does things, and then shows itself
         :return:
         """
-        pass
+        print("constructor")
 
     def show(self):
         """
         This method will be used to create a GUI for addressbook project
+        sets the size of window
         :return:
         """
         print("show")
 
-    def eventListener(self):
-        """
-        This is a method that will listen for button clicks
-        :return:
-        """

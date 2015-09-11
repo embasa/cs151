@@ -1,8 +1,8 @@
 __author__ = 'bruno'
-from addressbook import AddressBookGUI
+from addressbook.AddressBookGUI import *
 from addressbook.AddressBookEntry import *
 
-class AddressBookEntryDialogue( AddressBookGUI ):
+class AddressBookEntryDialogue(AddressBookGUI):
     """
     This class is intended to manage the dialogue box
     for adding/editing AddressBookEntry's
@@ -12,14 +12,12 @@ class AddressBookEntryDialogue( AddressBookGUI ):
         Constructor for AddressBookDialogue
         :return:
         """
-        pass
+        print("ABED constructor")
+        super(AddressBookEntryDialogue, self).__init__()
 
-    def makeAddressBookEntry(self):
+    def show(self):
         """
-        This method is needed to return an AddressBook instance that is populated with
-        typed fields
+        Does it's own thing and then calls parent show()
         :return:
         """
-        entry = AddressBookEntry()
-        return entry
-
+        super(AddressBookEntryDialogue, self).show()
