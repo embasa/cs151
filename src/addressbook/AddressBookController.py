@@ -16,18 +16,20 @@ class AddressBookController(object):
     def __init__(self):
         """
         Constructor instantiates all necessary classes objects
+        When address book project is open there is no initial addressbook
+        thus current file is empty
         :return:
         """
         self.__addressBook__ = AddressBook()
         self.__currentDialogue__ = AddressBookDialogue()# AddressBookController always starts with this dialogue
 
-    def new(self,addressBookName, filePath):
+    def new(self,addressBookName, filepath):
         """
         This method is called to create a new AddressBook. Initially empty, so only
         the name is required. Closes current AddressBook. This method doesn't have
         parameters because it will have to
         :param addressBookName: string containing name of new AddressBook
-        :param filePath: string containing filepath of new AddressBook
+        :param fileName: string containing filepath of new AddressBook
         :return:
         """
         print("new")
@@ -41,15 +43,21 @@ class AddressBookController(object):
         """
         print("open")
 
+    def close(self):
+        """
+        This method is used to close current AddressBook
+        :return:
+        """
+
     def save(self):
         """
         This method overrides current AddressBook with the modified version
-        of the AddressBook.
+        of the AddressBook in storage
         :return:
         """
         print("save")
 
-    def saveAs(self,filepath):
+    def saveAs(self, filepath):
         """
         This method calls the writeToDisk() method of the Storage class with filepath
         and with a reference to the current AddressBook
@@ -58,26 +66,13 @@ class AddressBookController(object):
         """
         print("saveAs")
 
-    def print(self):
-        """
-        This method gives the current AddressBook to the AddressBookEntry so as to
-        populate the window with the given AddressBook
-        :return:
-        """
-        print("print")
-
-    def close(self):
-        """
-        This method is used to close current AddressBook
-        :return:
-        """
-
     def quit(self):
         """
         This method closes application. Probably has a routine to do so safely
         :return:
         """
         print("quit")
+
 
     def add(self):
         """
@@ -117,19 +112,29 @@ class AddressBookController(object):
         """
         self.__addressBook__.sortByName()
 
-    def importCSV(self):
+    def print(self):
+        """
+        This method is used to print all AddressBookEntries in 'mailing label' format
+        :return:
+        """
+        print("print")
+
+    def importCSV(self,mapping, filepath):
         """
         This method uses the AddressBookImportDialogue to get mapping and filepath
         of CSV file to pass information to Storage to get an array
         of AddressBookEntries to pass to the current AddressBook to append
+        :param mapping: mapping for the column to fields
+        :param filepath: a string locating where to import CSV file from
         :return:
         """
         print("importCSV")
 
-    def exportCSV(self):
+    def exportCSV(self,filepath):
         """
         This method gets an array of AddressBookEntries from the current AddressBook
         to Storage to save to disk as CSV file.. Possibly saves the entire AddressBook
+        :param filepath: for where to write CSV file
         :return:
         """
         print("exportCSV")

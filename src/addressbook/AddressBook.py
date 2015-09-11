@@ -57,14 +57,6 @@ class AddressBook(object):
         """
         print("addEntry()")
 
-    def deleteEntry(self,index):
-        """
-        This method deletes an entry from the addressBook
-        :param index: index of the entry to be deleted
-        :return: A boolean with whether deleting was successful or not
-        """
-        print("deleteEntry()")
-
     def editEntry(self,index):
         """
         Takes an AddressBook entry and edits it accordingly
@@ -72,6 +64,14 @@ class AddressBook(object):
         :return: a copy of the reference of that AddressBookEntry
         """
         print("editEntry()")
+
+    def deleteEntry(self,index):
+        """
+        This method deletes an entry from the addressBook
+        :param index: index of the entry to be deleted
+        :return: A boolean with whether deleting was successful or not
+        """
+        print("deleteEntry()")
 
     def searchEntry(self,lastName):
         """
@@ -125,6 +125,13 @@ class AddressBook(object):
         """
         print("exportEntries")
 
+    def __lastNameComparator__(self):
+        """
+        This method is used to compare AddressBookEntries by lastName
+        :return: an int, 1 if caller is larger, 0 if the same value and -1 otherwise
+        """
+        return -1
+
     def __zipCodeComparator__(self):
         """
         This method is used to compare AddressBookEntries by zipcode
@@ -132,9 +139,3 @@ class AddressBook(object):
         """
         return -1
 
-    def __lastNameComparator__(self):
-        """
-        This method is used to compare AddressBookEntries by lastName
-        :return: an int, 1 if caller is larger, 0 if the same value and -1 otherwise
-        """
-        return -1
